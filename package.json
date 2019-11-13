@@ -5,12 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server client",
+    "sls": "sls",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/jbmarflo/websocket-serverless-mapa.git"
   },
+  "keywords": [
+    "serverless",
+    "Mapa google",
+    "Googlemap socket",
+    "AWS Lambda",
+    "serverless framework",
+    "websocket"
+  ],
   "author": "Joseph Marcilla Flores",
   "license": "ISC",
   "bugs": {
@@ -19,6 +28,11 @@
   "homepage": "https://github.com/jbmarflo/websocket-serverless-mapa#readme",
   "devDependencies": {
     "http-server": "^0.11.1",
-    "serverless-websockets-plugin": "^1.0.0"
+    "serverless-websockets-plugin": "^1.0.0",
+    "@anttiviljami/serverless-stack-output": "^0.3.1",
+    "serverless": "^1.46.0",
+    "serverless-plugin-common-excludes": "^2.4.0",
+    "serverless-plugin-include-dependencies": "^3.2.1",
+    "serverless-stack-output": "^0.2.3"
   }
 }

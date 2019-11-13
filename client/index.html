@@ -1,9 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Mapa Web Socket con Serverless</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 20px 5%;
+        }
+        #map-client {
+            width: 100%;
+            height: 400px;
+        }
+        .btn-send {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
-<body>
-    hola
+<body class="row">
+    <section class="card-map col-md-6">
+        <h2>Cliente</h2>
+        <form name="client">
+            <label for="description">Coloca una descrición</label>
+            <textarea id="description" class="form-control"></textarea>
+            <label for="description">Coordenadas (lat,lng)</label>
+            <div class="row">
+                <div class="col"><input class="form-control" name="lat" readonly></div>
+                <div class="col"><input class="form-control" name="lng" readonly></div>
+            </div>
+            <br>
+            <div id="map-client"></div>
+            <br>
+            <button class="btn-send btn btn-primary btn-lg">Enviar</button>
+        </form>
+    </section>
+    <section class="card-map col-md-6">
+        <h2>Socket</h2>
+    </section>
+    <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyB6U1YGP2Lv3k5c7WNDkpzMmqGkyoU-eQg" type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+
+        function load() {
+            if (GBrowserIsCompatible()) {
+                let map = new GMap2(document.getElementById("map-client"));
+                map.setCenter(new GLatLng(40,-4),3);
+                map.addControl(new GLargeMapControl());
+                map.setMapType(G_NORMAL_MAP);
+
+                let point = new GPoint (-4,40);
+                let marker = new GMarker(point);
+                map.addOverlay(marker);
+
+                GEvent.addListener(map, "click", function (overlay,point){
+                    if (point){
+                        marker.setPoint(point);
+                        document.client.lat.value=point.lat()
+                        document.client.lng.value=point.lng()
+                    }
+                });
+            }
+        }
+
+        window.onload=load
+        //]]>
+    </script>
 </body>
 </html>
