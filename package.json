@@ -4,6 +4,7 @@
   "description": "mapa con websocket",
   "main": "index.js",
   "scripts": {
+    "start": "http-server client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/jbmarflo/websocket-serverless-mapa/issues"
   },
-  "homepage": "https://github.com/jbmarflo/websocket-serverless-mapa#readme"
+  "homepage": "https://github.com/jbmarflo/websocket-serverless-mapa#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "serverless-websockets-plugin": "^1.0.0"
+  }
 }
