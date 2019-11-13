@@ -7,8 +7,14 @@ Al queres implementar socket con una arquitectura en AWS con Lambda, se debe imp
 # Manual
 Se puede levantar subiendo al servidor o con localstack
 ```sh
+# Instalar dependecias
+npm install
+
+# Instalar serverless global
+npm install -g serverless
+
 # Primero hacer Deplo aws
-npm run sls -- deploy
+npm run deploy
 
 # Abrir el cliente (Frontend) en puerto 8080
 npm start

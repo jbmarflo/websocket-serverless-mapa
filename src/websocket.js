@@ -31,16 +31,24 @@ exports.handler = async function(event, context) {
         case 'routeA':
             await apig.postToConnection({
                 ConnectionId: connectionId,
-                Data: `Received on routeA: ${body}`
+                Data: body
             }).promise();
             break;
 
         case '$default':
         default:
-            await apig.postToConnection({
-                ConnectionId: connectionId,
-                Data: `Received on $default: ${body}`
+            const data = await dynamodb.scan({
+                TableName: connectionTable,
             }).promise();
+            console.log('data data')
+            console.log(data)
+            data.Items.map(async (connection) => {
+                console.log(connection)
+                await apig.postToConnection({
+                    ConnectionId: connection.connectionId,
+                    Data: body
+                })
+            })
     }
 
     return { statusCode: 200 };

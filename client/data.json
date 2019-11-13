@@ -1,0 +1,5 @@
+{
+  "ServiceEndpointWebsocket": "wss://e4rx49n4n1.execute-api.us-east-1.amazonaws.com/dev",
+  "ServerlessDeploymentBucketName": "websocket-map-dev-serverlessdeploymentbucket-ocdppobymopy",
+  "WebsocketLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:923017739947:function:websocket-map-dev-websocket:4"
+}

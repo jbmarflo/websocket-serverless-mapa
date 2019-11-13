@@ -4,8 +4,8 @@
   "description": "mapa con websocket",
   "main": "index.js",
   "scripts": {
-    "start": "http-server client",
-    "sls": "sls",
+    "start": "http-server  client -o",
+    "deploy": "sls -- deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
