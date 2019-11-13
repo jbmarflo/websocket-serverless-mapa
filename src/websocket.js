@@ -40,15 +40,14 @@ exports.handler = async function(event, context) {
             const data = await dynamodb.scan({
                 TableName: connectionTable,
             }).promise();
-            console.log('data data')
-            console.log(data)
-            data.Items.map(async (connection) => {
-                console.log(connection)
+            data.Items.forEach(async (connection) => {
                 await apig.postToConnection({
                     ConnectionId: connection.connectionId,
                     Data: body
-                })
+                }).promise();
             })
+
+
     }
 
     return { statusCode: 200 };
