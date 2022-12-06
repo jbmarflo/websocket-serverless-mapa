@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/jbmarflo/websocket-serverless-mapa#readme",
   "devDependencies": {
-    "http-server": "^0.11.1",
+    "http-server": "^0.11.2",
     "serverless-websockets-plugin": "^1.0.0",
     "@anttiviljami/serverless-stack-output": "^0.3.1",
     "serverless": "^1.46.0",
